@@ -20,7 +20,7 @@ abstract class Physical
     {
         if ($wear < 0.0 || $wear > 100.0) {
             throw new \InvalidArgumentException(
-                sprintf('Износ должен быть в пределах 0..100%%, получено: %s', $wear)
+                "От 0 до 100%%"
             );
         }
         $this->wear = $wear;
