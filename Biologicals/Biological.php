@@ -9,7 +9,7 @@
         echo "ошибка в форматировании адреса";
     }
 
-     class Biological extends Entity
+    abstract class Biological extends Entity
     {
     //разрешено чтение из вне, но запрещена запись во внешнем коде
     public protected(set) float $health = 100.0 {
@@ -32,9 +32,6 @@
 
     }
 
-    protected function handleDeath(): void
-    {
-
-    }
+    abstract protected function handleDeath(): void;
 
 }

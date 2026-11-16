@@ -13,5 +13,5 @@ if (file_exists($BiologicalDir)) {
     echo "Файл '" . $BiologicalDir . "' подключен";
 }
 
-$biological = new Biological("firstObject","Ivan");
+$biological = new Biological("firstObject","Чувак");
 print_r($biological);
