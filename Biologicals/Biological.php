@@ -1,24 +1,24 @@
 <?php
-$dirName = __DIR__;
-$entity = $dirName . '/../Entity.php';
+    $dirName = __DIR__;
+    $entity = $dirName . '/../Entity.php';
 
-if(file_exists($entity)){
-    require_once($entity);
-    echo "Модуль {$entity} подключен\n";
-}else{
-    echo "ошибка в форматировании адреса";
-}
+    if(file_exists($entity)){
+        require_once($entity);
+        echo "Модуль {$entity} подключен\n";
+    }else{
+        echo "ошибка в форматировании адреса";
+    }
 
-abstract class Biological extends Entity
-{
+     class Biological extends Entity
+    {
     //разрешено чтение из вне, но запрещена запись во внешнем коде
     public protected(set) float $health = 100.0 {
         set(float $value) {
-            $this->health = min(0.0, max(100.0, $value));
+            $this->health = max(0.0, min(100.0, $value));
             if($this->health === 0.0)
             {
                 echo "Объект с ID:{$this->id} умер.";
-                $this->handleDeath();
+//                $this->handleDeath();
             }
         }
     }
@@ -32,6 +32,9 @@ abstract class Biological extends Entity
 
     }
 
-    abstract protected function handleDeath(): void;
+    protected function handleDeath(): void
+    {
+
+    }
 
 }
