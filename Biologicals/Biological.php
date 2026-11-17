@@ -18,7 +18,7 @@
             if($this->health === 0.0)
             {
                 echo "Объект с ID:{$this->id} умер.";
-//                $this->handleDeath();
+                $this->handleDeath();
             }
         }
     }
@@ -29,7 +29,6 @@
     public function changeHealth(float $delta): void
     {
         $this->health += $delta;
-
     }
 
     abstract protected function handleDeath(): void;

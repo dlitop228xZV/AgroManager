@@ -51,7 +51,7 @@ final class Cow extends Biological implements FeedableInterface
         }
         $this->weightKg += ($kg * self::WEIGHT_GAIN_COEFFICIENT);
         $this->health = min(100.0,$this->health + 2.0);
-//        $this->health = $this->changeHealth(2.0);
+//        $this->health = $this->changeHealth (2.0);
     }
 
     #[\Override]

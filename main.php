@@ -28,3 +28,9 @@ if (file_exists($cowFile)) {
 $cow = new Cow('1','cow-1', 250);
 $cow->feed(10.0);
 print_r($cow);
+
+try {
+    $cow->changeHealth(-100.0);
+} catch (\InvalidArgumentException $e) {
+    echo "\n{$e->getMessage()}\n";
+}
