@@ -1,21 +1,32 @@
 <?php
 
-namespace Physicals;
+$dirName = __DIR__;
+$entity = $dirName . '/../../Entity.php';
 
-abstract class Physical
+if(file_exists($entity)){
+    require_once($entity);
+    echo "Модуль {$entity} подключен\n";
+}else{
+    echo "ошибка в форматировании адреса";
+}
+
+abstract class Physical extends Entity
 {
-    public float $wear {
+    public protected(set) float $wear = 0.0{
         set (float $value) {
             if ($value < 0.0 || $value > 100.0) {
-                throw new \InvalidArgumentException(
+                throw new \OutOfRangeException(
                     "От 0 до 100%"
                 );
             }
+            $this->wear = $value;
         }
     }
-
-    public function __construct(float $wear = 0.0)
+    public function service(): Physical
     {
-        $this->wear = $wear;
+        $this->wear = 0.0;
+        return $this;
     }
+
+    abstract public function attachTo(Tractor $tractor): Physical;
 }
