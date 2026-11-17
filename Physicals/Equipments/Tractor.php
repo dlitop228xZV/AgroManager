@@ -16,4 +16,12 @@ final class Tractor extends Equipment
         $this->wear += 1.0;
         return $this;
     }
+
+    #[\Override]
+    public  function service(): Tractor
+    {
+        parent::service();
+        $this->refuel(50.0);
+        return $this;
+    }
 }
